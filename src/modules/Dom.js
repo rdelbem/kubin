@@ -8,14 +8,14 @@ class Dom extends Thumbs {
     this.events();
   }
 
+  injectFirstImg() {
+    this.displayerDiv.innerHTML = `<img src="../images/fullsize/${this.fileNames[0]}" />`;
+  }
+
   events() {
     this.liThumbs.addEventListener("click", (ev) =>
       this.clickedThumb(ev.target)
     );
-  }
-
-  injectFirstImg() {
-    this.displayerDiv.innerHTML = `<img src="../images/fullsize/${this.fileNames[0]}" />`;
   }
 
   clickedThumb(ev) {
