@@ -1,6 +1,16 @@
+import { setOptions } from "./Options";
+
+setOptions.fullSizePath = "images/fullsize/";
+setOptions.baseURL = "http://localhost:8080/"; //this must be changed according to your URL
+
 class Thumbs {
   constructor() {
+    this.pathToFiles = setOptions.fullSizePath;
+    this.baseURL = setOptions.baseURL;
+    this.displayerDiv = document.querySelector(".kubin-principal");
     this.liThumbs = document.querySelector(".kubin-img-gallery");
+    this.thumbsPosition;
+    this.fullSizePath;
     this.listThumbsSrc();
   }
 
@@ -25,8 +35,6 @@ class Thumbs {
     }
 
     return this.fileNames.length > 0 ? this.fileNames : null;
-    //console.log(this.fileNames);
   }
 }
-
 export default Thumbs;

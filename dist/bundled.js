@@ -94,7 +94,31 @@
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _styles_styles_scss__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./styles/styles.scss */ \"./src/styles/styles.scss\");\n/* harmony import */ var _modules_Thumbs__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./modules/Thumbs */ \"./src/modules/Thumbs.js\");\n\r\n\r\n\r\nnew _modules_Thumbs__WEBPACK_IMPORTED_MODULE_1__[\"default\"]();\r\n\n\n//# sourceURL=webpack:///./src/App.js?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _styles_styles_scss__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./styles/styles.scss */ \"./src/styles/styles.scss\");\n/* harmony import */ var _modules_Thumbs__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./modules/Thumbs */ \"./src/modules/Thumbs.js\");\n/* harmony import */ var _modules_Dom__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./modules/Dom */ \"./src/modules/Dom.js\");\n/* harmony import */ var _modules_Options__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./modules/Options */ \"./src/modules/Options.js\");\n\r\n\r\n\r\n\r\n\r\nnew _modules_Thumbs__WEBPACK_IMPORTED_MODULE_1__[\"default\"]();\r\nnew _modules_Dom__WEBPACK_IMPORTED_MODULE_2__[\"default\"]();\r\nconst options = new _modules_Options__WEBPACK_IMPORTED_MODULE_3__[\"default\"]();\r\n\n\n//# sourceURL=webpack:///./src/App.js?");
+
+/***/ }),
+
+/***/ "./src/modules/Dom.js":
+/*!****************************!*\
+  !*** ./src/modules/Dom.js ***!
+  \****************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _Thumbs__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./Thumbs */ \"./src/modules/Thumbs.js\");\n\r\n\r\nclass Dom extends _Thumbs__WEBPACK_IMPORTED_MODULE_0__[\"default\"] {\r\n  constructor() {\r\n    super();\r\n    this.displayerDiv = document.querySelector(\".kubin-principal\");\r\n    this.displayerDiv !== undefined ? this.injectFirstImg() : null;\r\n    this.events();\r\n  }\r\n\r\n  injectFirstImg() {\r\n    this.displayerDiv.innerHTML = `<img src=\"../images/fullsize/${this.fileNames[0]}\" />`;\r\n  }\r\n\r\n  events() {\r\n    this.liThumbs.addEventListener(\"click\", (ev) =>\r\n      this.clickedThumb(ev.target)\r\n    );\r\n  }\r\n\r\n  clickedThumb(ev) {\r\n    if (ev.tagName === \"IMG\") {\r\n      console.log(ev.src.split(\"/\").pop());\r\n      this.displayerDiv.innerHTML = `<img src=\"../images/fullsize/${ev.src\r\n        .split(\"/\")\r\n        .pop()}\" />`;\r\n    }\r\n  }\r\n}\r\n/* harmony default export */ __webpack_exports__[\"default\"] = (Dom);\r\n\n\n//# sourceURL=webpack:///./src/modules/Dom.js?");
+
+/***/ }),
+
+/***/ "./src/modules/Options.js":
+/*!********************************!*\
+  !*** ./src/modules/Options.js ***!
+  \********************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+eval("__webpack_require__.r(__webpack_exports__);\nclass Options {\r\n  constructor(thumbsPosition, fullSizePath, lightBox, zoom) {\r\n    this.thumbsPosition = thumbsPosition;\r\n    this.fullSizePath = fullSizePath;\r\n    this.lightBox = lightBox;\r\n    this.zoom = zoom;\r\n    this.dindo();\r\n  }\r\n\r\n  dindo() {\r\n    console.log(this.thumbsPosition);\r\n  }\r\n}\r\n/* harmony default export */ __webpack_exports__[\"default\"] = (Options);\r\n\n\n//# sourceURL=webpack:///./src/modules/Options.js?");
 
 /***/ }),
 
@@ -106,7 +130,7 @@ eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var _sty
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-eval("__webpack_require__.r(__webpack_exports__);\nclass Thumbs {\r\n  constructor() {\r\n    this.liThumbs = document.querySelector(\".kubin-img-gallery\");\r\n    this.listThumbsSrc();\r\n  }\r\n\r\n  listThumbsSrc() {\r\n    if (this.liThumbs !== undefined) {\r\n      this.liThumbsSrcArr = [];\r\n\r\n      for (let i = 0; i < this.liThumbs.childElementCount; i++) {\r\n        console.log(this.liThumbs.children[i]);\r\n        // this.liThumbsSrcArr.push(this.liThumbs.children[i].children[i].src);\r\n      }\r\n\r\n      // this.liThumbsSrcArr.length > 0 ? cleanPathsToFileNames() : null;\r\n    }\r\n  }\r\n\r\n  cleanPathsToFileNames() {\r\n    this.fileNames = [];\r\n\r\n    for (let i = 0; i < this.liThumbsSrcArr.length; i++) {\r\n      let splitedSrc = this.liThumbsSrcArr[i].split(\"/\").pop();\r\n      this.fileNames.push(splitedSrc);\r\n    }\r\n\r\n    this.fileNames.length > 0 ? this.fileNames : null;\r\n  }\r\n}\r\n\r\n/* harmony default export */ __webpack_exports__[\"default\"] = (Thumbs);\r\n\n\n//# sourceURL=webpack:///./src/modules/Thumbs.js?");
+eval("__webpack_require__.r(__webpack_exports__);\nclass Thumbs {\r\n  constructor() {\r\n    this.liThumbs = document.querySelector(\".kubin-img-gallery\");\r\n    this.listThumbsSrc();\r\n  }\r\n\r\n  listThumbsSrc() {\r\n    if (this.liThumbs !== undefined) {\r\n      this.liThumbsSrcArr = [];\r\n\r\n      for (let i = 0; i < this.liThumbs.childElementCount; i++) {\r\n        this.liThumbsSrcArr.push(this.liThumbs.children[i].children[0].src);\r\n      }\r\n\r\n      this.liThumbsSrcArr.length > 0 ? this.cleanPathsToFileNames() : null;\r\n    }\r\n  }\r\n\r\n  cleanPathsToFileNames() {\r\n    this.fileNames = [];\r\n\r\n    for (let i = 0; i < this.liThumbsSrcArr.length; i++) {\r\n      let splitedSrc = this.liThumbsSrcArr[i].split(\"/\").pop();\r\n      this.fileNames.push(splitedSrc);\r\n    }\r\n\r\n    return this.fileNames.length > 0 ? this.fileNames : null;\r\n    //console.log(this.fileNames);\r\n  }\r\n}\r\n\r\n/* harmony default export */ __webpack_exports__[\"default\"] = (Thumbs);\r\n\n\n//# sourceURL=webpack:///./src/modules/Thumbs.js?");
 
 /***/ }),
 

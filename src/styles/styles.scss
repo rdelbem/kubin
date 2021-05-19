@@ -1,4 +1,113 @@
+body {
+  margin: 0;
+  padding: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: "Poppins", sans-serif;
+  margin: 0;
+  min-height: 100vh;
+}
+
 .kubin-img-gallery > li {
   display: inline-block;
   list-style: none;
+  cursor: pointer;
+  z-index: 100;
+}
+
+.overlay {
+  z-index: 2;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: #000;
+  backdrop-filter: blur(3px);
+  background-color: rgba(0, 0, 0, 0.9);
+}
+
+.showing {
+  cursor: pointer;
+  transform-origin: center center;
+  object-fit: cover;
+  height: 100%;
+  width: 100%;
+}
+
+.kubin-principal {
+  overflow: hidden;
+  margin-left: auto;
+  margin-right: auto;
+  box-shadow: 3px 3px 4px rgba(0, 0, 0, 0.3);
+  height: 500px;
+  width: 500px;
+}
+
+.close-btn > p {
+  position: absolute;
+  right: 32px;
+  cursor: pointer;
+  color: #555;
+  font-size: 40px;
+  transition: 200ms;
+}
+
+.close-btn > p:hover {
+  color: #fff;
+  filter: drop-shadow(0 0 0.75rem #aaa);
+  text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000,
+    1px 1px 0 #000;
+}
+
+.showing-img {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  cursor: pointer;
+  height: 80%;
+  transition: 100ms;
+}
+
+.overflow-hidden {
+  overflow: hidden;
+}
+
+.hide {
+  display: none;
+}
+
+.arrow-left {
+  position: absolute;
+  left: 0;
+  top: 50%;
+  cursor: pointer;
+  transition: 100ms;
+  z-index: 100;
+  color: white;
+  font-size: 1.8rem;
+  margin: 1rem;
+  padding: 1rem;
+  background-color: rgba(0, 0, 0, 0.2);
+  transition: 200ms;
+}
+.arrow-left:hover {
+  background-color: rgba(85, 85, 85, 0.3);
+}
+.arrow-right {
+  position: absolute;
+  right: 0;
+  top: 50%;
+  cursor: pointer;
+  transition: 100ms;
+  z-index: 100;
+  color: white;
+  font-size: 1.8rem;
+  margin: 1rem;
+  padding: 1rem;
+  background-color: rgba(0, 0, 0, 0.2);
+  transition: 200ms;
+}
+.arrow-right:hover {
+  background-color: rgba(85, 85, 85, 0.3);
 }
