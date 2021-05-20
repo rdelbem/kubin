@@ -8,7 +8,7 @@
  *  *  *  *  *  SETTINGS
  *  *  *  *  *
  *  *  *  *  * setOptions, as the name suggests,
- *  *  *  *  * is a global object that will be
+ *  *  *  *  * is an object that will be
  *  *  *  *  * called wherever it is necessary to
  *  *  *  *  * turn on or off this programm's features
  *
