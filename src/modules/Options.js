@@ -26,8 +26,8 @@
 export var setOptions = {
   overlay: true,
   overlayBlur: true,
-  baseURL: null,
-  fullSizePath: null,
+  baseURL: "http://localhost:8080/",
+  fullSizePath: "images/fullsize/",
   lightBox: true,
   zoom: true,
 };
