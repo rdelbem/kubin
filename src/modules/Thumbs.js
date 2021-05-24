@@ -8,7 +8,7 @@ import { setOptions } from "./Options";
  * It also brings the options to its own variables.
  */
 
-class Thumbs {
+export default class Thumbs {
   constructor() {
     //OPTIONS VARIABLES
     this.fullSizePath = setOptions.fullSizePath;
@@ -27,7 +27,7 @@ class Thumbs {
   }
 
   /**
-   * @listThumbs
+   * @listThumbsSrc
    * This method select the names of the thumbs and group
    * all of them in an array
    *
@@ -70,4 +70,3 @@ class Thumbs {
     return this.fileNames.length > 0 ? this.fileNames : null;
   }
 }
-export default Thumbs;

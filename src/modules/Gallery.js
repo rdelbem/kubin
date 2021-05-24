@@ -1,6 +1,6 @@
 import Thumbs from "./Thumbs";
 
-class Gallery extends Thumbs {
+export default class Gallery extends Thumbs {
   constructor() {
     super();
     this.displayerDiv !== undefined ? this.injectFirstImg() : null;
@@ -47,4 +47,3 @@ class Gallery extends Thumbs {
     });
   }
 }
-export default Gallery;

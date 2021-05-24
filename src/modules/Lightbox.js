@@ -1,6 +1,6 @@
 import Gallery from "./Gallery";
 
-class Lightbox extends Gallery {
+export default class Lightbox extends Gallery {
   constructor() {
     super();
 
@@ -40,8 +40,8 @@ class Lightbox extends Gallery {
         <p>&times;</p>
       </div>
 
-      <div class="arrow-left"><p class="p-arrow-left">&larr;</p></div>
-      <div class="arrow-right"><p class="p-arrow-right">&rarr;</p></div>
+      <div class="arrow-left" style="left: 0;"><p class="p-arrow-left">&larr;</p></div>
+      <div class="arrow-right" style="right: 0;"><p class="p-arrow-right">&rarr;</p></div>
 
     <div class="showing-img">
         <img src="${currentImg}" class="overlayImg">
@@ -130,4 +130,3 @@ class Lightbox extends Gallery {
     arrowLeft.addEventListener("click", keyNav);
   }
 }
-export default Lightbox;

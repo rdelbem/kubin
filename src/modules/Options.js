@@ -1,18 +1,10 @@
 /**
- * Kubin Gallery -> made with ♥ by Rodrigo Vieira Del Bem -> rodrigodelbem@gmail.com
- *
- * This software is totally OPENSOURCE. You can change it as you please.
- *
- * Kubin was an artist and a writter, one of Kafka's favorites. This gallery plugin is a homenage to Kubin's memory.
- *
  *  *  *  *  * SETTINGS
  *  *  *  *  *
  *  *  *  *  * setOptions, as the name suggests,
  *  *  *  *  * is an object that will be
  *  *  *  *  * called wherever it is necessary to
  *  *  *  *  * turn on or off this programm's features
- *
- *
  *
  * @overlay -> It can be set to : true or false. This will turn overlay on, if true, or turn off, if false, on the lightbox.
  * @overlayBlur -> It can be set to : true or false. If the value is set to true, then the overlay background will have a smooth blur. However if it is set to false it will be plain transparent.
@@ -24,7 +16,7 @@
  */
 
 export const setOptions = {
-  overlay: true,
+  overlay: "black",
   overlayBlur: true,
   baseURL: "http://localhost:8080/",
   fullSizePath: "images/fullsize/",
