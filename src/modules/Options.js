@@ -1,11 +1,11 @@
 /**
  * Kubin Gallery -> made with ♥ by Rodrigo Vieira Del Bem -> rodrigodelbem@gmail.com
  *
- * This software is totally OPENSOURCE. Change it as you please.
+ * This software is totally OPENSOURCE. You can change it as you please.
  *
  * Kubin was an artist and a writter, one of Kafka's favorites. This gallery plugin is a homenage to Kubin's memory.
  *
- *  *  *  *  *  SETTINGS
+ *  *  *  *  * SETTINGS
  *  *  *  *  *
  *  *  *  *  * setOptions, as the name suggests,
  *  *  *  *  * is an object that will be
@@ -23,11 +23,12 @@
 
  */
 
-export var setOptions = {
+export const setOptions = {
   overlay: true,
   overlayBlur: true,
   baseURL: "http://localhost:8080/",
   fullSizePath: "images/fullsize/",
   lightBox: true,
   zoom: true,
+  bigImgsPostFix: null,
 };

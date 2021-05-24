@@ -1,6 +1,6 @@
-import Dom from "./Dom";
+import Gallery from "./Gallery";
 
-class Lightbox extends Dom {
+class Lightbox extends Gallery {
   constructor() {
     super();
 
@@ -8,19 +8,19 @@ class Lightbox extends Dom {
     this.kubinPrincipal = document.querySelector(".kubin-principal");
     this.countKeyboardStrokes = 0;
     this.event();
-    this.ArrayForLightboxNav();
+    this.arrayForLightboxNav();
   }
 
   event() {
     this.kubinPrincipal.addEventListener("click", () => this.lightbox());
   }
 
-  ArrayForLightboxNav() {
+  arrayForLightboxNav() {
     this.fullSizeImagesPaths = [];
 
     for (let i = 0; i < this.fileNames.length; i++) {
       this.fullSizeImagesPaths.push(
-        this.baseURL + this.pathToFiles + this.fileNames[i]
+        this.baseURL + this.fullSizePath + this.fileNames[i]
       );
     }
 
@@ -105,9 +105,8 @@ class Lightbox extends Dom {
           ? this.countKeyboardStrokes++
           : null;
 
-        document.querySelector(".overlayImg").src = this.fullSizeImagesPaths[
-          this.countKeyboardStrokes
-        ];
+        document.querySelector(".overlayImg").src =
+          this.fullSizeImagesPaths[this.countKeyboardStrokes];
       } else if (
         e.code === "ArrowLeft" ||
         e.target.className == "arrow-left" ||
@@ -117,9 +116,8 @@ class Lightbox extends Dom {
 
         this.countKeyboardStrokes > 0 ? this.countKeyboardStrokes-- : null;
 
-        document.querySelector(".overlayImg").src = this.fullSizeImagesPaths[
-          this.countKeyboardStrokes
-        ];
+        document.querySelector(".overlayImg").src =
+          this.fullSizeImagesPaths[this.countKeyboardStrokes];
       }
 
       if (e.code === "Escape") {

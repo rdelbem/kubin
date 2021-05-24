@@ -1,6 +1,6 @@
 import Thumbs from "./Thumbs";
 
-class Dom extends Thumbs {
+class Gallery extends Thumbs {
   constructor() {
     super();
     this.displayerDiv !== undefined ? this.injectFirstImg() : null;
@@ -13,8 +13,8 @@ class Dom extends Thumbs {
   }
 
   injectFirstImg() {
-    this.currentImg = this.pathToFiles + this.fileNames[0];
-    this.displayerDiv.innerHTML = `<img class="showing" src="${this.pathToFiles}${this.fileNames[0]}" />`;
+    this.currentImg = this.fullSizePath + this.fileNames[0];
+    this.displayerDiv.innerHTML = `<img class="showing" src="${this.fullSizePath}${this.fileNames[0]}" />`;
   }
 
   clickThumb() {
@@ -25,7 +25,7 @@ class Dom extends Thumbs {
 
   clickedThumb(ev) {
     if (ev.tagName === "IMG") {
-      this.currentImg = this.pathToFiles + ev.src.split("/").pop();
+      this.currentImg = this.fullSizePath + ev.src.split("/").pop();
       this.img.src = this.currentImg;
     }
   }
@@ -47,4 +47,4 @@ class Dom extends Thumbs {
     });
   }
 }
-export default Dom;
+export default Gallery;
