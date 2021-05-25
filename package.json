@@ -11,11 +11,12 @@
   "author": "Rodrigo Del Bem",
   "license": "GPL",
   "dependencies": {
-    "webpack": "^4.44.1",
+    "colortranslator": "^1.7.1",
     "lazysizes": "^5.1.2",
     "lodash": "^4.17.15",
     "normalize-scss": "^7.0.1",
-    "normalize.css": "^8.0.1"
+    "normalize.css": "^8.0.1",
+    "webpack": "^4.44.1"
   },
   "devDependencies": {
     "@babel/core": "^7.7.2",

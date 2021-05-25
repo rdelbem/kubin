@@ -4,6 +4,10 @@
  * This software is totally OPENSOURCE. You can change it as you please.
  *
  * Kubin was an artist and a writter, one of Kafka's favorites. This gallery plugin is a homenage to Kubin's memory.
+ *
+ * NOTICE: If you intend to colaborate to this app, you are more than welcome!
+ * All the upcomming features MUST extend one of the three basic classes listed below,
+ * following this rule is absolute nacessary in order to access all relevant data from the dom!
  */
 
 import "./styles/styles.scss";

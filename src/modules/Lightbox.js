@@ -1,8 +1,12 @@
 import Gallery from "./Gallery";
+import { ColorTranslator } from "colortranslator";
 
 export default class Lightbox extends Gallery {
   constructor() {
     super();
+
+    //If lightbox is turned off, nothing here will work
+    if (!this.lightBox) return;
 
     this.body = document.getElementsByTagName("BODY")[0];
     this.kubinPrincipal = document.querySelector(".kubin-principal");
@@ -35,7 +39,17 @@ export default class Lightbox extends Gallery {
 
     //layout
     let lightboxInnerTemplate = `
-    <div class="overlay">
+    <div class="overlay"
+    style="
+    ${this.overlayBlur ? "backdrop-filter: blur(3px);" : ""} 
+    ${
+      Boolean(this.overlay)
+        ? `background-color: ${ColorTranslator.toRGBA(
+            this.overlay + this.overlayAlpha
+          )}`
+        : ""
+    }
+    ">
       <div class="close-btn">
         <p>&times;</p>
       </div>
