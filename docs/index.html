@@ -32,12 +32,14 @@
     </div>
     <script type="application/javascript">
       var setOptions = {
-        overlay: true,
-        overlayBlur: true,
-        baseURL: "http://localhost:8080/",
-        fullSizePath: "images/fullsize/",
-        lightBox: true,
-        zoom: true,
+        overlay: "#000000", //must have hashtag as first character - STRING
+        overlayAlpha: "99", //must be two digits - STRING
+        overlayBlur: true, //true or false - BOOLEAN
+        baseURL: "https://rdelbem.github.io/kubin/", //The address of your webpage - STRING
+        fullSizePath: "images/fullsize/", //The path to the big images - STRING
+        lightBox: true, //BOOLEAN
+        zoom: true, //BOOLEAN
+        bigImgsPostFix: false, // false is the deafault value, any other values must be - STRING
       };
     </script>
     <script type="text/javascript" src="bundled.js"></script>

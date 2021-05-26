@@ -1,4 +1,4 @@
-body {
+.container {
   margin: 0;
   padding: 0;
   display: flex;
@@ -8,23 +8,24 @@ body {
   margin: 0;
   min-height: 100vh; }
 
-.kubin-img-gallery > li {
+.kubin-img-gallery li {
   display: inline-block;
   list-style: none;
-  cursor: pointer;
-  z-index: 100; }
+  cursor: pointer; }
+
+.overflow-hidden {
+  overflow: hidden; }
 
 .overlay {
   z-index: 2;
   position: absolute;
+  margin: 0;
+  top: 0;
+  left: 0;
   width: 100%;
-  height: 100%;
-  background: #000;
-  backdrop-filter: blur(3px);
-  background-color: rgba(0, 0, 0, 0.9); }
+  height: 100%; }
 
 .showing {
-  cursor: pointer;
   transform-origin: center center;
   object-fit: cover;
   height: 100%;
@@ -38,54 +39,31 @@ body {
   height: 500px;
   width: 500px; }
 
-.close-btn > p {
+.close-btn p {
   position: absolute;
   right: 32px;
   cursor: pointer;
-  color: #555;
+  color: #f0f0f0;
   font-size: 40px;
-  transition: 200ms; }
+  transition: all 0.2s; }
 
-.close-btn > p:hover {
+.close-btn p:hover {
   color: #fff;
-  filter: drop-shadow(0 0 0.75rem #aaa);
-  text-shadow: -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000; }
+  filter: drop-shadow(0 0 0.75rem #aaa); }
 
 .showing-img {
   position: absolute;
   left: 50%;
   top: 50%;
   transform: translate(-50%, -50%);
-  cursor: pointer;
-  height: 80%;
-  transition: 100ms; }
-
-.overflow-hidden {
-  overflow: hidden; }
+  cursor: pointer; }
 
 .hide {
   display: none; }
 
-.arrow-left {
-  position: absolute;
-  left: 0;
-  top: 50%;
-  cursor: pointer;
-  transition: 100ms;
-  z-index: 100;
-  color: white;
-  font-size: 1.8rem;
-  margin: 1rem;
-  padding: 1rem;
-  background-color: rgba(0, 0, 0, 0.2);
-  transition: 200ms; }
-
-.arrow-left:hover {
-  background-color: rgba(85, 85, 85, 0.3); }
-
+.arrow-left,
 .arrow-right {
   position: absolute;
-  right: 0;
   top: 50%;
   cursor: pointer;
   transition: 100ms;
@@ -95,7 +73,7 @@ body {
   margin: 1rem;
   padding: 1rem;
   background-color: rgba(0, 0, 0, 0.2);
-  transition: 200ms; }
-
-.arrow-right:hover {
-  background-color: rgba(85, 85, 85, 0.3); }
+  transition: all 0.2s; }
+  .arrow-left:hover,
+  .arrow-right:hover {
+    background-color: rgba(85, 85, 85, 0.3); }
