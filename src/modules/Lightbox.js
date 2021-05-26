@@ -18,6 +18,12 @@ export default class Lightbox extends Gallery {
     //It is used to lock images navigation
     this.countKeyboardStrokes = 0;
 
+    //controls de adding and removing of listeners
+    this.callLightbox = () => {
+      this.kubinPrincipal.removeEventListener("click", this.callLightbox);
+      return this.lightbox();
+    };
+
     //starter method
     this.event();
   }
@@ -26,7 +32,7 @@ export default class Lightbox extends Gallery {
    * @event will listen to clicks on the displayer div
    */
   event() {
-    this.kubinPrincipal.addEventListener("click", () => this.lightbox());
+    this.kubinPrincipal.addEventListener("click", this.callLightbox);
   }
 
   /**
@@ -38,7 +44,7 @@ export default class Lightbox extends Gallery {
 
     let lightboxInnerTemplate = `
     <div class="overlay"
-    style="
+    style="top: ${window.pageYOffset}px;
     ${this.overlayBlur ? "backdrop-filter: blur(3px);" : ""} 
     ${
       Boolean(this.overlay)
@@ -82,6 +88,7 @@ export default class Lightbox extends Gallery {
 
     let clickCloseLightbox = overlay.addEventListener("click", (e) => {
       removeLightboxFromDom(e.target);
+      this.kubinPrincipal.addEventListener("click", this.callLightbox);
     });
 
     let removeLightboxFromDom = (e) => {
