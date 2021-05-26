@@ -1,6 +1,10 @@
 import Gallery from "./Gallery";
 import { ColorTranslator } from "colortranslator";
 
+/**
+ * @Lightbox class controls all the lightbox features and behaiviors
+ */
+
 export default class Lightbox extends Gallery {
   constructor() {
     super();
@@ -10,34 +14,28 @@ export default class Lightbox extends Gallery {
 
     this.body = document.getElementsByTagName("BODY")[0];
     this.kubinPrincipal = document.querySelector(".kubin-principal");
+
+    //It is used to lock images navigation
     this.countKeyboardStrokes = 0;
+
+    //starter method
     this.event();
-    this.arrayForLightboxNav();
   }
 
+  /**
+   * @event will listen to clicks on the displayer div
+   */
   event() {
     this.kubinPrincipal.addEventListener("click", () => this.lightbox());
   }
 
-  arrayForLightboxNav() {
-    this.fullSizeImagesPaths = [];
-
-    for (let i = 0; i < this.fileNames.length; i++) {
-      this.fullSizeImagesPaths.push(
-        this.baseURL + this.fullSizePath + this.fileNames[i]
-      );
-    }
-
-    return this.fullSizeImagesPaths;
-  }
-
-  lightbox() {
-    //as lightbox is feature rich, it will be a bigger method if compared to the usual size of other Kubin gallery methods.
-
+  /**
+   * @layout returns the layout of the lightbox,
+   * all layout features must be separated from this app logical methods
+   */
+  layout() {
     let currentImg = this.currentImg;
-    let bodyVariable = this.body;
 
-    //layout
     let lightboxInnerTemplate = `
     <div class="overlay"
     style="
@@ -63,8 +61,20 @@ export default class Lightbox extends Gallery {
         </div>
     `;
 
+    return lightboxInnerTemplate;
+  }
+
+  /**
+   * @lightbox contains all the logical that concerns its core functionalities
+   */
+  lightbox() {
+    let bodyVariable = this.body;
+    let indexOfCurrentImg = this.indexOfCurrentImg;
+
     bodyVariable.classList.add("overflow-hidden");
-    bodyVariable.insertAdjacentHTML("afterbegin", lightboxInnerTemplate);
+
+    bodyVariable.insertAdjacentHTML("afterbegin", this.layout());
+
     //overlay selector, must come after
     let overlay = document.querySelector(".overlay");
     let arrowRight = document.querySelector(".arrow-right");
@@ -76,10 +86,10 @@ export default class Lightbox extends Gallery {
 
     let removeLightboxFromDom = (e) => {
       if (
-        e.className != "arrow-left" &&
-        e.className != "arrow-right" &&
-        e.className != "p-arrow-right" &&
-        e.className != "p-arrow-left"
+        e.className !== "arrow-left" &&
+        e.className !== "arrow-right" &&
+        e.className !== "p-arrow-right" &&
+        e.className !== "p-arrow-left"
       ) {
         overlay.remove();
         bodyVariable.classList.remove("overflow-hidden");
@@ -91,23 +101,16 @@ export default class Lightbox extends Gallery {
     };
 
     let evaluated = false;
-    let evaluatePosition = () => {
-      if (
-        this.fullSizeImagesPaths.indexOf(
-          document.querySelector(".overlayImg").src
-        ) != 0 &&
-        evaluated === false
-      ) {
+    const evaluatePosition = () => {
+      if (indexOfCurrentImg !== 0 && evaluated === false) {
         evaluated = true;
-        return (this.countKeyboardStrokes = this.fullSizeImagesPaths.indexOf(
-          document.querySelector(".overlayImg").src
-        ));
+        return (this.countKeyboardStrokes = indexOfCurrentImg);
       } else {
         return this.countKeyboardStrokes;
       }
     };
 
-    let keyNav = (e) => {
+    const keyNav = (e) => {
       if (
         e.code === "ArrowRight" ||
         e.target.className == "arrow-right" ||
@@ -115,12 +118,11 @@ export default class Lightbox extends Gallery {
       ) {
         evaluatePosition();
 
-        this.countKeyboardStrokes < this.fullSizeImagesPaths.length - 1
-          ? this.countKeyboardStrokes++
-          : null;
+        if (this.countKeyboardStrokes < this.pathsToBigImgs.length - 1)
+          this.countKeyboardStrokes++;
 
         document.querySelector(".overlayImg").src =
-          this.fullSizeImagesPaths[this.countKeyboardStrokes];
+          this.pathsToBigImgs[this.countKeyboardStrokes];
       } else if (
         e.code === "ArrowLeft" ||
         e.target.className == "arrow-left" ||
@@ -128,14 +130,14 @@ export default class Lightbox extends Gallery {
       ) {
         evaluatePosition();
 
-        this.countKeyboardStrokes > 0 ? this.countKeyboardStrokes-- : null;
+        if (this.countKeyboardStrokes > 0) this.countKeyboardStrokes--;
 
         document.querySelector(".overlayImg").src =
-          this.fullSizeImagesPaths[this.countKeyboardStrokes];
+          this.pathsToBigImgs[this.countKeyboardStrokes];
       }
 
       if (e.code === "Escape") {
-        removeLightboxFromDom();
+        removeLightboxFromDom(e.code);
       }
     };
 

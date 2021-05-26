@@ -8,10 +8,12 @@ export default class Gallery extends Thumbs {
   constructor() {
     super();
 
-    this.displayerDiv !== undefined ? this.injectFirstImg() : null;
-    this.currentImg; //this variable stores the path to the current displayed image, therefore it will be used in Lightbox object. It will be updated according to user demands
+    //If displayer div is on the DOM, let's inject first image
+    Boolean(this.displayerDiv) ? this.injectFirstImg() : null;
+    //After injecting first image, let's select the img tag in order to control its source
     this.img = document.querySelector(".showing");
 
+    //Starter methods
     this.clickThumb();
     this.mouseEnter();
     this.mouseLeave();
@@ -19,11 +21,15 @@ export default class Gallery extends Thumbs {
 
   /**
    * @injectFirstImg
-   * It will grab the first thumb correspondent big image and inject it in the displayer div
+   * It will grab the first thumb corresponding big image and inject it in the displayer div,
+   * it will also update the currentImg on display.
    */
   injectFirstImg() {
-    this.currentImg = this.fullSizePath + this.fileNames[0];
-    this.displayerDiv.innerHTML = `<img class="showing" src="${this.pathsToBigImgs[0]}" />`;
+    this.currentImg = this.pathsToBigImgs[0];
+    this.indexOfCurrentImg = 0;
+    this.displayerDiv.innerHTML = `<img class="showing" src="${
+      this.pathsToBigImgs[0]
+    }" ${this.lightBox ? `style="cursor: pointer;"` : null} />`;
   }
 
   /**
@@ -31,25 +37,23 @@ export default class Gallery extends Thumbs {
    * It listens to the thumbs clicks and calls clickedThumb
    */
   clickThumb() {
-    this.liThumbs.addEventListener("click", (ev) =>
-      this.clickedThumb(ev.target)
-    );
+    this.liThumbs.addEventListener("click", (e) => this.clickedThumb(e.target));
   }
 
   /**
    * @clickedThumbs
    * It controls the image switching in the displayer div
    */
-  clickedThumb(ev) {
-    if (ev.tagName === "IMG") {
-      let indexOfClickedImg = parseInt(ev.getAttribute("data-index"));
+  clickedThumb(element) {
+    if (element.tagName === "IMG") {
+      let indexOfClickedImg = parseInt(element.getAttribute("data-index"));
       this.currentImg = this.pathsToBigImgs[indexOfClickedImg];
+      this.indexOfCurrentImg = indexOfClickedImg;
       this.img.src = this.currentImg;
     }
   }
 
   /**
-   *
    * @mouseEnter
    * It controls zoom behavior
    */
@@ -65,7 +69,6 @@ export default class Gallery extends Thumbs {
   }
 
   /**
-   *
    * @mouseLeave
    * It controls zoom behavior
    */

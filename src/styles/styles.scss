@@ -19,6 +19,10 @@
   }
 }
 
+.overflow-hidden {
+  overflow: hidden;
+}
+
 .overlay {
   z-index: 2;
   position: absolute;
@@ -30,7 +34,6 @@
 }
 
 .showing {
-  cursor: pointer;
   transform-origin: center center;
   object-fit: cover;
   height: 100%;

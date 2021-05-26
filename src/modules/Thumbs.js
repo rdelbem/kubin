@@ -30,7 +30,14 @@ export default class Thumbs {
     //Path to big imgs
     this.pathsToBigImgs = [];
 
-    //START METHOD
+    //this variable stores the path to the current displayed image,
+    //therefore it will be used in Lightbox object.
+    //It will be updated according to user demands
+    this.currentImg;
+    //this variable stores the data-index attribute of the clicked thumb
+    this.indexOfCurrentImg;
+
+    //STARTER METHOD
     this.listThumbsSrc();
   }
 
