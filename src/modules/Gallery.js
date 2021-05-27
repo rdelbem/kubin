@@ -63,7 +63,10 @@ export default class Gallery extends Thumbs {
       const x = e.clientX - e.target.offsetLeft;
       const y = e.clientY - e.target.offsetTop;
 
-      this.img.style.transformOrigin = `${x}px ${y}px`;
+      this.img.style.transformOrigin = `
+      ${x > 0 ? x : 0}px
+      ${y > 0 ? y : 0}px
+      `;
       this.img.style.transform = "scale(2)";
     });
   }
