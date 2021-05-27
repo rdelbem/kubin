@@ -1,4 +1,4 @@
-//import Thumbs from "./Thumbs";
+import Thumbs from "./Thumbs";
 
 /**
  * @Gallery controls the click and display behavior.

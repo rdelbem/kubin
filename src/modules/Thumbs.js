@@ -1,4 +1,4 @@
-import { setOptions } from "./Options";
+//import { setOptions } from "./Options";
 
 /**
  * @Thumbs This class initiate the whole app.
