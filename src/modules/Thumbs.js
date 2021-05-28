@@ -27,9 +27,9 @@ export default class Thumbs {
     this.displayerDiv = document.querySelector(".kubin-principal");
     this.liThumbs = document.querySelector(".kubin-img-gallery");
 
+    //ESSENTIAL PROPERTIES
     //Path to big imgs
     this.pathsToBigImgs = [];
-
     //this variable stores the path to the current displayed image,
     //therefore it will be used in Lightbox object.
     //It will be updated according to user demands
@@ -43,10 +43,10 @@ export default class Thumbs {
 
   /**
    * @listThumbsSrc
-   * This method select the names of the thumbs and group
+   * This method selects the names of the thumbs and group
    * all of them in an array
    *
-   * An undored list must be created following the basic markdown
+   * An unordered list must be created following the basic markdown
    * See documentation
    */
   listThumbsSrc() {
@@ -88,37 +88,30 @@ export default class Thumbs {
   cleanPathsToFileNames() {
     this.fileNames = [];
 
-    for (let i = 0; i < this.liThumbsSrcArr.length; i++) {
-      let splitedSrc = this.liThumbsSrcArr[i].split("/").pop();
+    const makePath = (src) => {
+      let nameAndExtension = src.split(".");
+      let name = "";
+      let extension = nameAndExtension[1];
+      let pathAndName = "";
+
+      if (Boolean(this.bigImgsPostFix)) {
+        name = `${nameAndExtension[0]}${this.bigImgsPostFix}.${extension}`;
+      } else {
+        name = src;
+      }
 
       if (window.location.hostname === "localhost") {
-        if (Boolean(this.bigImgsPostFix)) {
-          //CONVERT THIS TO A FUNCTION
-          let nameAndExtension = splitedSrc.split(".");
-          let justName = nameAndExtension[0] + this.bigImgsPostFix;
-          let extension = nameAndExtension[1];
-          let newNameWithPostfixAndPath = `${this.fullSizePath}${justName}.${extension}`;
-
-          this.fileNames.push(newNameWithPostfixAndPath);
-        } else {
-          let pathAndName = `${this.fullSizePath}${splitedSrc}`;
-
-          this.fileNames.push(pathAndName);
-        }
+        pathAndName = `${this.fullSizePath}${name}`;
       } else {
-        if (Boolean(this.bigImgsPostFix)) {
-          let nameAndExtension = splitedSrc.split(".");
-          let justName = nameAndExtension[0] + this.bigImgsPostFix;
-          let extension = nameAndExtension[1];
-          let newNameWithPostfixAndPath = `${this.baseURL}${this.fullSizePath}${justName}.${extension}`;
-
-          this.fileNames.push(newNameWithPostfixAndPath);
-        } else {
-          let pathAndName = `${this.baseURL}${this.fullSizePath}${splitedSrc}`;
-
-          this.fileNames.push(pathAndName);
-        }
+        pathAndName = `${this.baseURL}${this.fullSizePath}${name}`;
       }
+
+      return pathAndName;
+    };
+
+    for (let i = 0; i < this.liThumbsSrcArr.length; i++) {
+      let splitedSrc = this.liThumbsSrcArr[i].split("/").pop();
+      this.fileNames.push(makePath(splitedSrc));
     }
 
     return (this.pathsToBigImgs = [...this.fileNames]);
