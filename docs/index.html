@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Kubin Tiny Gallery</title>
-    <link rel="stylesheet" href="kubin-styles.css" />
+    <link rel="stylesheet" href="https://rdelbem.github.io/kubin/kubin-styles-v1.css" />
     <style>
       @import url("https://fonts.googleapis.com/css2?family=Overpass&display=swap");
       * {
@@ -135,132 +135,132 @@
     </style>
   </head>
   <body>
-    <header>
-      <div class="header">
-        <h1>Kubin Gallery<small>v1</small></h1>
-        <h4>A vanilla JavaScript image gallery with lightbox</h4>
-      </div>
-   </header>
-   
-   <section id="infos" class="demo">
-    <div class="column-container">
-     <div class="titles">
-       <h4>This is a demo and a basic set up structure</h4>
-       <p>Kubin Gallery takes pride in giving <u>you total control</u> over its features</p>
-     </div>
-     
-   <div class="row-container">
-     
-   <div class="column-container">
-   <div class="info">
-     <p>Kubin Gallery requires two files in order to work properly, a js and a css.</p>
-     <p>Currently, we are offering the main file, the js one, from our GitHub deploy page, from the link: <span>https://rdelbem.github.io/kubin/kubin-gallery-v1.js</span></p>
-     <p>Our css file link is: <span>https://rdelbem.github.io/kubin/kubin-styles-v1.css</span></p>
-     <p>Our repo is <span><a href="https://github.com/rdelbem/kubin" target="_blank">https://github.com/rdelbem/kubin</a><span></p>
-     <hr>
+   <header>
+   <div class="header">
+     <h1>Kubin Gallery<small>v1</small></h1>
+     <h4>A vanilla JavaScript image gallery with lightbox</h4>
    </div>
-     
-   <div class="codes">
-   <p>Follow the basic markdow shown bellow in order to embed Kubin to your HTML template.</p> 
-   <pre><code>&lt;div class=&quot;kubin-container&quot;&gt;
-    &lt;div class=&quot;kubin-principal&quot;&gt;&lt;/div&gt;
-    &lt;div class=&quot;kubin-thumbs&quot;&gt;
-     &lt;ul class=&quot;kubin-img-gallery&quot;&gt;
-      &lt;li&gt;
-       &lt;img class=&quot;kubin-gallery-thumb&quot; src=&quot;here goes your url&quot; /&gt;
-      &lt;/li&gt;
-     &lt;/ul&gt;
-    &lt;/div&gt;
-   &lt;/div&gt;</code></pre>
-   </div>
-   <div class="codes">
-   <p>
-     Insert the following script on your html in order to tweak features.<br>
-     It <u>must</u> come before the kubin-gallery-v1.js embed.
-   </p> 
-   <pre><code>&lt;script type="application/javascript"&gt;
-   var setOptions = {
-    overlay: "#000000",
-    overlayAlpha: "99",
-    overlayBlur: true,
-    baseURL: "https://rdelbem.github.io/kubin/",
-    fullSizePath: "images/fullsize/",
-    lightBox: true,
-    zoom: true,
-    bigImgsPostFix: false,
-   };
-   &lt;/script&gt;</code></pre>
-    <h3>Configs</h3>
-     <ul>
-       <li><i>overlay</i> controls the color of the lightbox background</li>
-       <li><i>overlayAlpha</i> controls the transparency of the lightbox background</li>
-       <li><i>overlayBlur</i> controls if there is blur on the lightbox background. It must be true or false.</li>
-       <li><i>baseURL</i> provides the main address where are the images. It must end with a /</li>
-       <li><i>fullSizePath</i> provides the folders where are the images. It must not start with a / and must end with an /</li>
-       <li><i>lightbox</i> controls if there will be lightbox or not. It must be a true or false value.</li>
-       <li><i>zoom</i> turn on or off the zoom on mouve hover. It must be a true or false value</li>
-       <li><i>bigImgsPostFix</i> use this if your big images have a post fix. Natively Kubin Gallery will search for big images with the same name as the thumbs.</li>
-     </ul>
-   </div>
+</header>
+
+<section id="infos" class="demo">
+ <div class="column-container">
+  <div class="titles">
+    <h4>This is a demo and a basic set up structure</h4>
+    <p>Kubin Gallery takes pride in giving <u>you total control</u> over its features</p>
+  </div>
+  
+<div class="row-container">
+  
+<div class="column-container">
+<div class="info">
+  <p>Kubin Gallery requires two files in order to work properly, a js and a css.</p>
+  <p>Currently, we are offering the main file, the js one, from our GitHub deploy page, from the link: <span>https://rdelbem.github.io/kubin/kubin-gallery-v1.js</span></p>
+  <p>Our css file link is: <span>https://rdelbem.github.io/kubin/kubin-styles-v1.css</span></p>
+  <p>Our repo is <span><a href="https://github.com/rdelbem/kubin" target="_blank">https://github.com/rdelbem/kubin</a><span></p>
+  <hr>
+</div>
+  
+<div class="codes">
+<p>Follow the basic markdow shown bellow in order to embed Kubin to your HTML template.</p> 
+<pre><code>&lt;div class=&quot;kubin-container&quot;&gt;
+ &lt;div class=&quot;kubin-principal&quot;&gt;&lt;/div&gt;
+ &lt;div class=&quot;kubin-thumbs&quot;&gt;
+  &lt;ul class=&quot;kubin-img-gallery&quot;&gt;
+   &lt;li&gt;
+    &lt;img class=&quot;kubin-gallery-thumb&quot; src=&quot;here goes your url&quot; /&gt;
+   &lt;/li&gt;
+  &lt;/ul&gt;
+ &lt;/div&gt;
+&lt;/div&gt;</code></pre>
+</div>
+<div class="codes">
+<p>
+  Insert the following script on your html in order to tweak features.<br>
+  It <u>must</u> come before the kubin-gallery-v1.js embed.
+</p> 
+<pre><code>&lt;script type="application/javascript"&gt;
+var setOptions = {
+ overlay: "#000000",
+ overlayAlpha: "99",
+ overlayBlur: true,
+ baseURL: "https://rdelbem.github.io/kubin/",
+ fullSizePath: "images/fullsize/",
+ lightBox: true,
+ zoom: true,
+ bigImgsPostFix: false,
+};
+&lt;/script&gt;</code></pre>
+ <h3>Configs</h3>
+  <ul>
+    <li><i>overlay</i> controls the color of the lightbox background</li>
+    <li><i>overlayAlpha</i> controls the transparency of the lightbox background</li>
+    <li><i>overlayBlur</i> controls if there is blur on the lightbox background. It must be true or false.</li>
+    <li><i>baseURL</i> provides the main address where are the images. It must end with a /</li>
+    <li><i>fullSizePath</i> provides the folders where are the images. It must not start with a / and must end with an /</li>
+    <li><i>lightbox</i> controls if there will be lightbox or not. It must be a true or false value.</li>
+    <li><i>zoom</i> turn on or off the zoom on mouve hover. It must be a true or false value</li>
+    <li><i>bigImgsPostFix</i> use this if your big images have a post fix. Natively Kubin Gallery will search for big images with the same name as the thumbs.</li>
+  </ul>
+</div>
+ 
+</div>
+  
+  <div class="kubin-container">
     
-   </div>
-     
-     <div class="kubin-container">
-       
-         <div class="kubin-principal"></div>
-   
-         <div class="kubin-thumbs">
-           <ul class="kubin-img-gallery">
-             <li>
-               <img class="kubin-gallery-thumb" src="https://rdelbem.github.io/kubin/images/thumbs/cat1.jpg" />
-             </li>
-             <li>
-               <img class="kubin-gallery-thumb" src="https://rdelbem.github.io/kubin/images/thumbs/cat2.jpg" />
-             </li>
-             <li>
-               <img class="kubin-gallery-thumb" src="https://rdelbem.github.io/kubin/images/thumbs/cat3.jpg" />
-             </li>
-             <li>
-               <img class="kubin-gallery-thumb" src="https://rdelbem.github.io/kubin/images/thumbs/cat4.jpg" />
-             </li>
-             <li>
-               <img class="kubin-gallery-thumb" src="https://rdelbem.github.io/kubin/images/thumbs/cat5.jpg" />
-             </li>
-           </ul>
-         </div>
-       </div>
-       
-     </div>
-       
+      <div class="kubin-principal"></div>
+
+      <div class="kubin-thumbs">
+        <ul class="kubin-img-gallery">
+          <li>
+            <img class="kubin-gallery-thumb" src="https://rdelbem.github.io/kubin/images/thumbs/cat1.jpg" />
+          </li>
+          <li>
+            <img class="kubin-gallery-thumb" src="https://rdelbem.github.io/kubin/images/thumbs/cat2.jpg" />
+          </li>
+          <li>
+            <img class="kubin-gallery-thumb" src="https://rdelbem.github.io/kubin/images/thumbs/cat3.jpg" />
+          </li>
+          <li>
+            <img class="kubin-gallery-thumb" src="https://rdelbem.github.io/kubin/images/thumbs/cat4.jpg" />
+          </li>
+          <li>
+            <img class="kubin-gallery-thumb" src="https://rdelbem.github.io/kubin/images/thumbs/cat5.jpg" />
+          </li>
+        </ul>
+      </div>
     </div>
-   </section>
-   
-   <section id="credits">
-   <div class="credits">
-     <div class="titles">
-       <p>Kubin Gallery is humblelly dedicated to the memory of the artist and writer Alfred Kubin, one of Kafka's favorits.</p>
-     </div>
-   </div>  
-   </section>
-     
-    <footer>
-     <div class="footer">   
-      <h2>coded with &#9825; by Rodrigo Del Bem</h2>
-     </div>
-    </footer>
-   
-   <script type="application/javascript">
-         var setOptions = {
-           overlay: "#000000", //must have hashtag as first character - STRING
-           overlayAlpha: "99", //must be two digits - STRING
-           overlayBlur: true, //true or false - BOOLEAN
-           baseURL: "https://rdelbem.github.io/kubin/", //The address of your webpage - STRING
-           fullSizePath: "images/fullsize/", //The path to the big images - STRING
-           lightBox: true, //BOOLEAN
-           zoom: true, //BOOLEAN
-           bigImgsPostFix: false, // false is the deafault value, any other values must be - STRING
-         };
-       </script>
-       <script type="text/javascript" src="https://rdelbem.github.io/kubin/kubin-gallery-v1.js"></script>
+    
+  </div>
+    
+ </div>
+</section>
+
+<section id="credits">
+<div class="credits">
+  <div class="titles">
+    <p>Kubin Gallery is humblelly dedicated to the memory of the artist and writer Alfred Kubin, one of Kafka's favorits.</p>
+  </div>
+</div>  
+</section>
+  
+ <footer>
+  <div class="footer">   
+   <h2>coded with &#9825; by Rodrigo Del Bem</h2>
+  </div>
+ </footer>
+
+<script type="application/javascript">
+      var setOptions = {
+        overlay: "#000000", //must have hashtag as first character - STRING
+        overlayAlpha: "99", //must be two digits - STRING
+        overlayBlur: true, //true or false - BOOLEAN
+        baseURL: "https://rdelbem.github.io/kubin/", //The address of your webpage - STRING
+        fullSizePath: "images/fullsize/", //The path to the big images - STRING
+        lightBox: true, //BOOLEAN
+        zoom: true, //BOOLEAN
+        bigImgsPostFix: false, // false is the deafault value, any other values must be - STRING
+      };
+    </script>
+    <script type="text/javascript" src="https://rdelbem.github.io/kubin/kubin-gallery-v1.js"></script>
   </body>
 </html>
