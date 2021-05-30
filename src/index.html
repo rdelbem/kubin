@@ -14,6 +14,7 @@
 
       body {
         background-color: #e3e3e3;
+        overflow-x: hidden;
       }
 
       html {
@@ -101,6 +102,7 @@
         display: block;
         padding: 2rem;
         margin-bottom: 3rem;
+        white-space: pre-wrap;
       }
       .codes ul {
         margin-top: 1rem;
@@ -126,11 +128,32 @@
 
       .kubin-principal {
         margin-bottom: 2rem;
-        height: 400px !important;
+        height: 40rem !important;
       }
 
       .kubin-gallery-thumb {
-        width: 98px;
+        width: 9.8rem;
+      }
+
+      .kubin-thumbs{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+
+      @media(max-width: 90rem){
+        .row-container{
+          flex-direction: column;
+        }
+        .info, .codes {
+        margin-right: 0 !important;
+      }
+      .demo{
+        margin: 0 2rem;
+      }
+      .kubin-principal {
+        width: 100% !important;
+      }
       }
     </style>
   </head>

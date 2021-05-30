@@ -49,18 +49,24 @@
 }
 
 .close-btn {
-  p {
-    position: absolute;
-    right: 32px;
-    cursor: pointer;
-    color: rgb(240, 240, 240);
-    font-size: 40px;
-    transition: all 0.2s;
+  position: absolute;
+  top: 2rem;
+  right: 2rem;
+  z-index: 10;
+  background-color: rgba(0, 0, 0, 0.2);
+  height: 4rem;
+
+  &:hover {
+    background-color: rgba(85, 85, 85, 0.3);
   }
 
-  p:hover {
-    color: #fff;
-    filter: drop-shadow(0 0 0.75rem #aaa);
+  p {
+    cursor: pointer;
+    color: rgb(240, 240, 240);
+    font-size: 4rem;
+    transition: all 0.2s;
+    padding: 1rem;
+    margin-top: -12px;
   }
 }
 

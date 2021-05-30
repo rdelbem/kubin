@@ -62,7 +62,9 @@ export default class Lightbox extends Gallery {
       <div class="arrow-right" style="right: 0;"><p class="p-arrow-right">&rarr;</p></div>
 
     <div class="showing-img">
-        <img src="${currentImg}" class="overlayImg">
+        <img src="${currentImg}" class="overlayImg" style="max-width: ${
+      screen.width
+    }px;">
     </div>
         </div>
     `;
