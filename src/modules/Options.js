@@ -20,7 +20,8 @@ export const setOptions = {
   overlay: "#000000", //must have hashtag as first character - STRING
   overlayAlpha: "99", //must be two digits - STRING
   overlayBlur: true, //true or false - BOOLEAN
-  baseURL: "http://localhost:8080/", //The address of your webpage - STRING
+  //baseURL: "http://localhost:8080/", //The address of your webpage - STRING
+  baseURL: "https://rdelbem.github.io/kubin/",
   fullSizePath: "images/fullsize/", //The path to the big images - STRING
   lightBox: true, //BOOLEAN
   zoom: true, //BOOLEAN
