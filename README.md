@@ -2,13 +2,12 @@
 
 ### How it works under the hood
 
-Kubin gallery uses ES6 OOP syntax to form its architecture.  
-You are more than welcome to contribute, you just have to bare a couple of things in your mind (read the following topics).
-
-Be our guest and take a look on our app: https://rdelbem.github.io/kubin/
+Kubin Gallery follows a basic principle: the name of the thumb must be the same as its correspondent big image. However, there is an exception: if your big images are post-fixed, you have to explicitly declare it on the bigImgsPostFix item on the setOptions object variable. Through the thumbs names a list of paths to the big images is generated. With this principle, it is our intention to easy the whole process of creating a gallery, because all you have to care are the thumbs. If it is not clear yet, be our guest and take a look on the app: https://rdelbem.github.io/kubin/.
 
 ### Architecture
 
+Kubin gallery uses ES6 OOP syntax to form its architecture.  
+You are more than welcome to contribute, you just have to bare a couple of things in your mind (read the following topics).
 The basic archive is in the folder src and it is named App.js. It works as a loader for all the classes involved in the features of the gallery.  
 Inside the folder modules, there are four files, they are: Gallery.js, Lightbox.js, Thumbs.js and Options.js.
 
