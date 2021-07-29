@@ -20,7 +20,6 @@ export default class Lightbox extends Gallery {
 
     //controls de adding and removing of listeners
     this.callLightbox = () => {
-      this.kubinPrincipal.removeEventListener("click", this.callLightbox);
       return this.lightbox();
     };
 
